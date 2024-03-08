@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>head</h1>
+</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animation</title>
+<style>
+  /* Define the style for the moving element */
+  #movingElement {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+  }
+</style>
+</head>
+<body>
+
+<div id="movingElement"></div>
+
+<script>
+  // Get the element to animate
+  var element = document.getElementById('movingElement');
+
+  // Set initial position
+  var positionX = 0;
+  var positionY = 0;
+
+  // Set animation parameters
+  var speedX = 2;
+  var speedY = 1;
+
+  // Define the animation function
+  function animate() {
+    // Update the position
+    positionX += speedX;
+    positionY += speedY;
+
+    // Update the element's position
+    element.style.left = positionX + 'px';
+    element.style.top = positionY + 'px';
+
+    // Reverse direction if hitting the edge of the window
+    if (positionX + element.offsetWidth >= window.innerWidth || positionX <= 0) {
+      speedX = -speedX;
+    }
+    if (positionY + element.offsetHeight >= window.innerHeight || positionY <= 0) {
+      speedY = -speedY;
+    }
+
+    // Request the next frame of the animation
+    requestAnimationFrame(animate);
+  }
+
+  // Start the animation
+  animate();
+</script>
+
+</body>
+</html>
+
+
+  </script>
+
+</html>
